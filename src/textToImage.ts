@@ -5,6 +5,7 @@ import { createCanvas, registerFont, Canvas } from 'canvas';
 
 const writeFileAsync = promisify(writeFile);
 const mkdirAsync = promisify(mkdir);
+const utility = {};
 
 interface GenerateOptions {
   bgColor?: string | CanvasGradient | CanvasPattern;
@@ -242,7 +243,8 @@ const createImageCanvas = (content: string, conf: GenerateOptionsRequired) => {
   return canvas;
 };
 
-export const generate = async (
+const generate = async (
+//utility.generate = async (
   content: string,
   config: GenerateOptions,
 ): Promise<string> => {
@@ -261,7 +263,8 @@ export const generate = async (
   return dataUrl;
 };
 
-export const generateSync = (
+const generateSync = (
+//utility.generateSync = (
   content: string,
   config: GenerateOptions,
 ): string => {
@@ -279,3 +282,5 @@ export const generateSync = (
 
   return dataUrl;
 };
+module.export = generate;
+module.export = generateSync;
